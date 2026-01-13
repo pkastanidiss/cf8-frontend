@@ -42,3 +42,32 @@
       <h3>From Step5 Event Bind</h3>
       <app-step5-event-bind></app-step5-event-bind>
     </div>
+    
+   <!-- Step 5 Event Bind -->
+    <div class="container mt-2">
+      <div class="d-flex flex-column gap-2">
+        <nav class="navbar navbar-dark bg-primary justifycontent-between">
+          <a class="navbar-brand ms-3 cursor-pointer" role=""button>CF Angular Introduction</a>
+        </nav>
+        <div class="d-flex flex-row gap-2">
+          <div class="d-flex flex-column text-nowrap bg-light p-2">
+            <span role="button" routerLink="person-table-example">Step 2 Person Table</span>
+            <span role="button" routerLink="component-input-example">Step 3 Component Input</span>
+          </div>
+          <span class="flex-grow-1 p-2 text-nowrap">MAIN PAGE</span>
+        </div>
+      </div>
+    </div>
+
+   <!-- Step 5 Event Bind -->
+    <div class="container mt-2">
+      <div class="dflex flex-column gap-2">
+        <app-navbar></app-navbar>
+        <div class="dflex flex-row gap-2">
+          <app-list-group-menu class="w-25 text-nowrap"></app-list-group-menu>
+          <div class="flex-grow-1 p-2 text-nowrap w-75">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
+    </div>    
