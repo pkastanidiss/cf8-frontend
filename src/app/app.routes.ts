@@ -7,7 +7,7 @@ import { Welcome } from './components/welcome/welcome';
 
 export const routes: Routes = [
   {path:'person-table-example', component: Step2PersonTable},
-  {path:'componnt-input-example', component: Step3PersonTableInput},
+  {path:'component-input-example', component: Step3PersonTableInput},
   {path:'for-directive-example', component: Step4ForDirective},
   {path:'event-bind-example', component: Step5EventBind},
   {path:'welcome', component: Welcome},

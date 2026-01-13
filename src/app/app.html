@@ -1,41 +1,42 @@
-<div class="container mt-4">
-  <div class="d-flex gap-5 align-items-center">
-    <div class="bg-info p-2">
-      <h1>Coding Factory</h1>
-      <h2>Introduction to Angular</h2>  
-    </div>
-    <div class="bg-success p-2 text-light">
-      <h3>Welcome to Angular</h3>
-      <p>Hello {{name}}, nice to meet you</p>
+@if (!doNotShowRest){
+  <div class="container mt-4">
+    <div class="d-flex gap-5 align-items-center">
+      <div class="bg-info p-2">
+        <h1>Coding Factory</h1>
+        <h2>Introduction to Angular</h2>  
+      </div>
+      <div class="bg-success p-2 text-light">
+        <h3>Welcome to Angular</h3>
+        <p>Hello {{name}}, nice to meet you</p>
+      </div>
     </div>
   </div>
-</div>
 
 <!-- Step 2 Component -->
- <div class="container mt-4">
-  <h3>From Step 2 Component</h3>
-  <div class="d-flex gap-5 text-nowrap">
-    <app-step2-person-table></app-step2-person-table>
-    <app-step2-person-table></app-step2-person-table>
-    <app-step2-person-table></app-step2-person-table>
+  <div class="container mt-4">
+    <h3>From Step 2 Component</h3>
+    <div class="d-flex gap-5 text-nowrap">
+      <app-step2-person-table></app-step2-person-table>
+      <app-step2-person-table></app-step2-person-table>
+      <app-step2-person-table></app-step2-person-table>
+    </div>
   </div>
- </div>
 
  <!-- Step 3 Component -->
-  <div class="container mt-4">
-  <h3>From Step 3 Component</h3>
-  <div class="d-flex gap-5 text-nowrap">
-    <app-step3-person-table-input [person]="person1"></app-step3-person-table-input>
-    <app-step3-person-table-input></app-step3-person-table-input>
-    <app-step3-person-table-input [person]="person2"></app-step3-person-table-input>
+    <div class="container mt-4">
+    <h3>From Step 3 Component</h3>
+    <div class="d-flex gap-5 text-nowrap">
+      <app-step3-person-table-input [person]="person1"></app-step3-person-table-input>
+      <app-step3-person-table-input></app-step3-person-table-input>
+      <app-step3-person-table-input [person]="person2"></app-step3-person-table-input>
+    </div>
   </div>
- </div>
 
   <!-- Step 4 @For -->
-   <div class=""container>
-      <h3>From Step 4 Component</h3>
-      <app-step4-for-directive></app-step4-for-directive>
-   </div>
+    <div class=""container>
+        <h3>From Step 4 Component</h3>
+        <app-step4-for-directive></app-step4-for-directive>
+    </div>
 
    <!-- Step 5 Event Bind -->
     <div class="container">
@@ -43,7 +44,7 @@
       <app-step5-event-bind></app-step5-event-bind>
     </div>
     
-   <!-- Step 5 Event Bind -->
+   <!-- Step 6 Routing -->
     <div class="container mt-2">
       <div class="d-flex flex-column gap-2">
         <nav class="navbar navbar-dark bg-primary justifycontent-between">
@@ -58,12 +59,13 @@
         </div>
       </div>
     </div>
+  } @else {
 
-   <!-- Step 5 Event Bind -->
+   <!-- Final Menu  -->
     <div class="container mt-2">
-      <div class="dflex flex-column gap-2">
+      <div class="d-flex flex-column gap-2">
         <app-navbar></app-navbar>
-        <div class="dflex flex-row gap-2">
+        <div class="d-flex flex-row gap-2">
           <app-list-group-menu class="w-25 text-nowrap"></app-list-group-menu>
           <div class="flex-grow-1 p-2 text-nowrap w-75">
             <router-outlet></router-outlet>
@@ -71,3 +73,4 @@
         </div>
       </div>
     </div>    
+  }
