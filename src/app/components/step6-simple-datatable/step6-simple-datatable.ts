@@ -9,6 +9,7 @@ import { sortBy } from 'lodash-es';
   styleUrl: './step6-simple-datatable.css',
 })
 export class Step6SimpleDatatable {
+[x: string]: any;
   @Input() data: Person[] | undefined;
   @Output() personClicked = new EventEmitter<Person>()
 
