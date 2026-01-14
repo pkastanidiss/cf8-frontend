@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
 import { Person } from '../../shared/interfaces/person';
-import { Step3PersonTableInput } from '../step3-person-table-input/step3-person-table-input';
+import { Step6SimpleDatatable } from '../step6-simple-datatable/step6-simple-datatable';
+
 
 @Component({
-  selector: 'app-step4-for-directive',
-  imports: [Step3PersonTableInput],
-  templateUrl: './step4-for-directive.html',
-  styleUrl: './step4-for-directive.css',
+  selector: 'app-step7-component-output',
+  imports: [Step6SimpleDatatable],
+  templateUrl: './step7-component-output.html',
+  styleUrl: './step7-component-output.css',
 })
-export class Step4ForDirective {
-
-  person: Person[] = [
+export class Step7ComponentOutput {
+  persons: Person[] = [
 {"firstname":"Jaymie","lastname":"Jellyman","email":"jjellyman0@mediafire.com"},
 {"firstname":"Franky","lastname":"Wolland","email":"fwolland1@parallels.com"},
 {"firstname":"Ethe","lastname":"Shaefer","email":"eshaefer2@arizona.edu"},
@@ -30,5 +30,11 @@ export class Step4ForDirective {
 {"firstname":"Britta","lastname":"McKernan","email":"bmckernang@ucoz.ru"},
 {"firstname":"Conni","lastname":"Pynner","email":"cpynnerh@fda.gov"},
 {"firstname":"Amalee","lastname":"De Bernardi","email":"adebernardii@cornell.edu"},
-{"firstname":"Krystal","lastname":"Keher","email":"kkeherj@washingtonpost.com"}]
+{"firstname":"Krystal","lastname":"Keher","email":"kkeherj@washingtonpost.com"}
+ ]
+
+ showPersonClicked(data:Person) {
+  console.log("Step 7", data);
+ }
 }
+
