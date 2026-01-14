@@ -1,6 +1,6 @@
 <div class="d-flex flex-column">
   <h5>New Person Form (Reactive)</h5>
-  <form [formGroup]="form">
+  <form [formGroup]="form" class="d-flex flex-column">
     <mat-form-field>
       <mat-label>First Name</mat-label>
       <input matInput type="text" formControlName="firstname">
@@ -25,10 +25,10 @@
     color="primary"
     [disabled]="form.invalid"
     (click)="onSubmit()"
-  ></button>
+  >Submit</button>
 
   <button
     mat-flat-button
     (click)="onSetValue()"
-  ></button>
+  >Set Value</button>
 </div>

@@ -7,6 +7,7 @@ import { Welcome } from './components/welcome/welcome';
 import { Step6SimpleDatatableShow } from './components/step6-simple-datatable-show/step6-simple-datatable-show';
 import { Step7ComponentOutput } from './components/step7-component-output/step7-component-output';
 import { Step8TemplateDrivenForms } from './components/step8-template-driven-forms/step-8-template-driven-forms';
+import { Step9ReactiveForms } from './components/step9-reactive-forms/step9-reactive-forms';
 
 export const routes: Routes = [
   {path:'person-table-example', component: Step2PersonTable},
@@ -16,6 +17,7 @@ export const routes: Routes = [
   {path:'simple-datatable-example', component:Step6SimpleDatatableShow},
   {path: 'component-output-example', component:Step7ComponentOutput},
   {path:'template-driven-form-example', component:Step8TemplateDrivenForms},
+  {path: 'reactive-forms-example', component: Step9ReactiveForms},
   {path:'welcome', component: Welcome},
   {path:'', redirectTo:'welcome', pathMatch:'full'}
 ];
