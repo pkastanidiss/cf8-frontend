@@ -6,7 +6,7 @@
     <input type="text" matInput formControlName="username">
     <mat-error>Username is required</mat-error>
   </mat-form-field>
-  
+
    <mat-form-field>
     <mat-label>Password</mat-label>
     <input type="text" matInput formControlName="password">
@@ -17,7 +17,7 @@
 <button mat-flat-button color="primary" (click)="onSubmit()">Submit</button>
 
 @if (invalidLogin) {
-  <div class="alert alert-danger">
+  <div class="alert alert-danger mt-2">
     <strong>Error:</strong> Invalid username or password
   </div>
 }
