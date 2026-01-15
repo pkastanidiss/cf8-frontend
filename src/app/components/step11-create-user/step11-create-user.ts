@@ -32,6 +32,11 @@ import {
 export class Step11CreateUser {
   userService = inject(UserService);
 
+  registrationStatus: {success: boolean, message:string} = {
+    success: false,
+    message: "Not attempted yet"
+  }
+
   form = new FormGroup({
     username: new FormControl('', Validators.required),
     firstname: new FormControl(''),
@@ -49,7 +54,22 @@ export class Step11CreateUser {
         type: new FormControl('', Validators.required)
       })
     ])
-  })
+  },
+    this.passwordConfirmPasswordValidator
+)
+
+  passwordConfirmPasswordValidator(control: AbstractControl):{[key:string]:boolean} | null {
+    const form = control as FormGroup;
+    const password = form.get('password')?.value;
+    const confirmPassword = form.get('confirmPassword')?.value;
+
+    if (password && confirmPassword && password!== confirmPassword){
+      form.get('confirmPassword')?.setErrors({passwordMismatch: true});
+      return {passwordMismatch: true}
+    }
+
+    return null
+  }
 
   phone = this.form.get('phone') as FormArray;
 
@@ -64,5 +84,21 @@ export class Step11CreateUser {
 
   deletePhoneNumber(index:number){
     this.phone.removeAt(index);
+  }
+
+  onSubmit(){
+    console.log(this.form.value);
+    const user = this.form.value as IUser
+
+    this.userService.createUser(user).subscribe({
+      next: (response) => {
+        this.form.reset()
+        this.registrationStatus = {success:true, message: "User registered"}
+      },
+      error: (error) => {
+        console.log("There was an error", error);
+        this.registrationStatus = {success:false, message: error}
+      }
+    })
   }
 }
