@@ -9,6 +9,7 @@ import { Step7ComponentOutput } from './components/step7-component-output/step7-
 import { Step8TemplateDrivenForms } from './components/step8-template-driven-forms/step-8-template-driven-forms';
 import { Step9ReactiveForms } from './components/step9-reactive-forms/step9-reactive-forms';
 import { Step10UserLogin } from './components/step10-user-login/step10-user-login';
+import { Step11CreateUser } from './components/step11-create-user/step11-create-user';
 
 export const routes: Routes = [
   {path:'person-table-example', component: Step2PersonTable},
@@ -16,10 +17,11 @@ export const routes: Routes = [
   {path:'for-directive-example', component: Step4ForDirective},
   {path:'event-bind-example', component: Step5EventBind},
   {path:'simple-datatable-example', component:Step6SimpleDatatableShow},
-  {path: 'component-output-example', component:Step7ComponentOutput},
+  {path:'component-output-example', component:Step7ComponentOutput},
   {path:'template-driven-form-example', component:Step8TemplateDrivenForms},
-  {path: 'reactive-forms-example', component: Step9ReactiveForms},
-  {path: 'login-example', component: Step10UserLogin},
+  {path:'reactive-forms-example', component: Step9ReactiveForms},
+  {path:'login-example', component: Step10UserLogin},
+  {path:'create-example', component: Step11CreateUser},
   {path:'welcome', component: Welcome},
   {path:'', redirectTo:'welcome', pathMatch:'full'}
 ];
