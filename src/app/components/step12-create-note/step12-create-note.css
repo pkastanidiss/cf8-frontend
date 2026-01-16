@@ -1,0 +1,57 @@
+/* Κεντρικό Container */
+.note-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  width: 100%;
+}
+
+/* Η κάρτα της σημείωσης */
+.note-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 700px; /* Ελέγχει πόσο πλατύ θα είναι το σύνολο */
+  box-sizing: border-box;
+}
+
+/* Force τα Material fields να είναι το ένα κάτω από το άλλο */
+.form-field-wrapper {
+  width: 100%;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.w-100 {
+  width: 100% !important;
+}
+
+/* Μορφοποίηση Header */
+.note-header h2 {
+  margin-bottom: 0.5rem;
+}
+
+/* Στοίχιση κουμπιών */
+.note-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.btn-clear, .btn-submit {
+  flex: 1;
+  padding: 0.5rem !important;
+}
+
+/* Status Messages */
+.status-msg {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.alert-success { background-color: #d4edda; color: #155724; }
+.alert-danger { background-color: #f8d7da; color: #721c24; }

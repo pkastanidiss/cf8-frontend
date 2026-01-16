@@ -1,0 +1,76 @@
+import { Component, inject } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+
+// Angular Material Imports
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+
+// Project Imports
+import { NoteService } from '../../shared/services/note.service';
+import { INote } from '../../shared/interfaces/note';
+
+@Component({
+  selector: 'app-step12-create-note',
+  standalone: true,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+  ],
+  templateUrl: './step12-create-note.html',
+  styleUrl: './step12-create-note.css',
+})
+export class Step12CreateNote {
+  // Dependency Injection
+  noteService = inject(NoteService);
+  router = inject(Router);
+
+  // Status object για την ενημέρωση του χρήστη στο UI
+  status: { success: boolean; message: string } = {
+    success: false,
+    message: '',
+  };
+
+  // Ορισμός της Φόρμας με Validation
+  form = new FormGroup({
+    title: new FormControl('', [Validators.required, Validators.minLength(5)]),
+    content: new FormControl('', [Validators.required, Validators.minLength(10)]),
+  });
+
+  onSubmit() {
+    if (this.form.invalid) return;
+
+    // Μετατροπή των τιμών της φόρμας στο interface INote
+    const noteData = this.form.value as INote;
+
+    console.log('Sending note data:', noteData);
+
+    this.noteService.createNote(noteData).subscribe({
+      next: (response) => {
+        console.log('Success:', response);
+        this.status = { 
+          success: true, 
+          message: 'Η σημείωση δημοσιεύτηκε επιτυχώς! Πλέον είστε Author.' 
+        };
+        this.form.reset();
+        
+        // Ανακατεύθυνση στη λίστα σημειώσεων μετά από 2 δευτερόλεπτα
+        setTimeout(() => {
+          this.router.navigate(['/notes-list']);
+        }, 2000);
+      },
+      error: (error)=> {
+        console.error('Error creating note:', error);
+        this.status = { 
+          success: false, 
+          message: 'Υπήρξε κάποιο πρόβλημα κατά τη δημοσίευση.' 
+        };
+      }
+    });
+  }
+}

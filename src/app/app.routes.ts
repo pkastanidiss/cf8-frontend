@@ -12,6 +12,7 @@ import { Step10UserLogin } from './components/step10-user-login/step10-user-logi
 import { Step11CreateUser } from './components/step11-create-user/step11-create-user';
 import { authGuard } from './shared/guards/auth-guard';
 import { adminRoleGuard } from './shared/guards/admin-role-guard';
+import { Step12CreateNote } from './components/step12-create-note/step12-create-note';
 
 export const routes: Routes = [
   {path:'person-table-example', component: Step2PersonTable},
@@ -23,7 +24,8 @@ export const routes: Routes = [
   {path:'template-driven-form-example', component:Step8TemplateDrivenForms},
   {path:'reactive-forms-example', component: Step9ReactiveForms},
   {path:'login-example', component: Step10UserLogin},
-  {path:'create-example', component: Step11CreateUser, canActivate:[authGuard, adminRoleGuard]},
+  {path:'create-user-example', component: Step11CreateUser, canActivate:[authGuard, adminRoleGuard]},
+  {path:'create-note-example', component: Step12CreateNote},
   {path:'welcome', component: Welcome},
   {path:'', redirectTo:'welcome', pathMatch:'full'}
 ];
