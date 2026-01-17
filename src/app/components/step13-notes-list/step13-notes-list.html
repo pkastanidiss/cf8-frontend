@@ -1,1 +1,49 @@
-<p>step13-notes-list works!</p>
+<div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 20px; align-items: flex-start;">
+    
+    <mat-card *ngFor="let note of notes" 
+              style="width: 300px; display: flex; flex-direction: column; height: auto; border-radius: 8px; overflow: hidden;">
+      
+      <mat-card-header style="padding-bottom: 0;">
+        <mat-card-title style="font-weight: bold; font-size: 1.1rem; color: #333; word-break: break-word;">
+          {{ note.title }}
+        </mat-card-title>
+        <mat-card-subtitle style="font-weight: bold; color: #000;">
+          Από: {{ $any(note.author)?.username }}
+        </mat-card-subtitle>
+      </mat-card-header>
+      
+      <mat-card-content style="margin-top: 12px; flex-grow: 1;">
+        <p style="
+          margin: 0; 
+          line-height: 1.5; 
+          color: #444; 
+          word-break: break-word; 
+          line-clamp: 3;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        ">
+          {{ note.content }}
+        </p>
+      </mat-card-content>
+
+      <mat-card-actions style="display: flex; justify-content: flex-end; padding: 4px 8px; gap: 4px;">
+  
+  <ng-container *ngIf="isAuthor(note)">
+    
+    <button mat-icon-button color="primary" [routerLink]="['/step14-edit-note', note._id]" matTooltip="Επεξεργασία">
+      <mat-icon>edit</mat-icon>
+    </button>
+    
+    <!-- <button mat-icon-button color="warn" (click)="deleteNote(note._id!)" matTooltip="Διαγραφή">
+      <mat-icon>delete</mat-icon>
+    </button> -->
+
+  </ng-container>
+
+</mat-card-actions>
+
+    </mat-card>
+</div>

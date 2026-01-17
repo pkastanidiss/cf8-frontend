@@ -1,0 +1,48 @@
+.note-card {
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  transition: transform 0.2s ease-in-out;
+}
+
+.note-card:hover {
+  transform: translateY(-5px);
+}
+
+.note-title {
+  font-weight: 700 !important;
+  color: #2c3e50;
+}
+
+.content-preview {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #555;
+}
+
+.note-body-expanded {
+  white-space: pre-wrap;
+  color: #222;
+}
+
+.author-avatar {
+  background-color: #3f51b5;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.mat-mdc-card-actions {
+  padding-top: 0 !important;
+}

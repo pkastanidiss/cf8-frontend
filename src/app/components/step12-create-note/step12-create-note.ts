@@ -61,7 +61,7 @@ export class Step12CreateNote {
         
         // Ανακατεύθυνση στη λίστα σημειώσεων μετά από 2 δευτερόλεπτα
         setTimeout(() => {
-          this.router.navigate(['/notes-list']);
+          this.router.navigate(['/notes-list-example']);
         }, 2000);
       },
       error: (error)=> {

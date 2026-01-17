@@ -1,0 +1,40 @@
+<div style="max-width: 500px; margin: 40px auto; font-family: sans-serif; padding: 0 20px;">
+
+  <div *ngIf="!isUpdated" style="padding: 25px; border: 1px solid #ddd; border-radius: 12px; background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+    <h3 style="text-align: center; color: #1976d2;">Επεξεργασία Σημείωσης</h3>
+    
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div style="margin-bottom: 15px;">
+        <label style="display: block; font-weight: bold; font-size: 14px; margin-bottom: 5px;">Τίτλος:</label>
+        <input type="text" formControlName="title" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+      </div>
+
+      <div style="margin-bottom: 20px;">
+        <label style="display: block; font-weight: bold; font-size: 14px; margin-bottom: 5px;">Περιεχόμενο:</label>
+        <textarea formControlName="content" rows="5" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;"></textarea>
+      </div>
+
+      <div style="display: flex; gap: 10px;">
+        <button type="submit" style="flex: 1.5; background: #1976d2; color: white; padding: 12px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">
+          ΑΠΟΘΗΚΕΥΣΗ
+        </button>
+        <button type="button" routerLink="/notes-list-example" style="flex: 1; background: #f44336; color: white; padding: 12px; border: none; border-radius: 6px; cursor: pointer;">
+          ΑΚΥΡΩΣΗ
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div *ngIf="isUpdated" style="text-align: center;">
+    <div style="background: #e8f5e9; color: #2e7d32; padding: 10px 20px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #c3e6cb; display: inline-block; font-size: 14px;">
+      ✅ Η αποθήκευση ολοκληρώθηκε!
+    </div>
+
+    <button 
+      routerLink="/notes-list-example" 
+      style="display: block; width: 100%; max-width: 250px; margin: 0 auto; padding: 12px; background: #28a745; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 10px rgba(40, 167, 69, 0.2);">
+      ΕΠΙΣΤΡΟΦΗ ΣΤΗ ΛΙΣΤΑ
+    </button>
+  </div>
+
+</div>
