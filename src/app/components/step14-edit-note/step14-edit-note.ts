@@ -38,17 +38,22 @@ export class Step14EditNote implements OnInit {
   }
 
   onSubmit(): void {
-    if (this.form.valid && this.noteId) {
-      // Αφαιρούμε τυχόν κενά που μπορεί να μπλοκάρουν το validation
-      const updatedNote = this.form.value;
-      
-      this.noteService.updateNote(this.noteId, updatedNote).subscribe({
-        next: () => {
-          this.isUpdated = true;
-          this.cdr.detectChanges(); // ΑΝΑΓΚΑΣΤΙΚΗ ΕΝΗΜΕΡΩΣΗ UI
-        },
-        error: (err) => console.error(err)
-      });
-    }
+  if (this.form.valid && this.noteId) {
+    // Χρησιμοποιούμε το getRawValue() για να αποφύγουμε το σφάλμα με το 'null'
+    // και στέλνουμε τα δεδομένα στο service.
+    this.noteService.updateNote(this.noteId, this.form.getRawValue()).subscribe({
+      next: (response) => {
+        // ΑΥΤΟ ΕΙΝΑΙ ΠΟΥ ΖΗΤΗΣΕΣ: Εμφάνιση στο console
+        console.log('Update Successful! Response from server:', response);
+        
+        this.isUpdated = true;
+        this.cdr.detectChanges(); 
+      },
+      error: (err) => {
+        console.error('Update failed:', err);
+        alert('Πρόβλημα κατά την αποθήκευση.');
+      }
+    });
+  }
   }
 }

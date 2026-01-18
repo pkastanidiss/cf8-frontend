@@ -1,0 +1,56 @@
+/* Κεντράρισμα στην οθόνη */
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 100px);
+  background-color: #f8f9fa;
+  padding: 20px;
+}
+
+/* Ο τίτλος h4 */
+h4 {
+  font-weight: 800;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Η φόρμα - Την κάνουμε πιο πλατιά (από το w-50 του HTML) */
+form {
+  width: 100% !important; 
+  max-width: 500px !important; /* Μεγαλύτερο πλάτος */
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* Μεγαλύτερα Material Fields */
+mat-form-field {
+  width: 100%;
+  font-size: 1.1rem;
+}
+
+/* Το κουμπί Submit */
+button[mat-flat-button] {
+  width: 100%;
+  max-width: 500px;
+  height: 55px; /* Πιο ψηλό κουμπί */
+  margin-top: 20px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  letter-spacing: 1px;
+}
+
+/* Το Alert του σφάλματος */
+.alert {
+  max-width: 500px;
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 15px;
+}

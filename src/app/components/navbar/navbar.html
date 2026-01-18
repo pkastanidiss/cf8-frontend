@@ -1,16 +1,25 @@
-<nav class="navbar navbar-dark bg-primary justify-content-between">
-  <a class="navbar-brand ms-3 cursor-pointer" role="button">CF - Angular Introduction</a>
-  @if (user()) {
-    <span class="me-3 d-flex gap-2 text-light">
-      Welcome, {{user()?.username}}
-      <span role="button" (click)="logout()">Logout</span>
-      </span>
-  } @else {
-    <span 
-    class="text-light me-3 d-flex gap-2 allign-items-center"
-    role="button"
-    routerLink="login-example"
-    >
-      Login</span>
-  }
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm px-3 py-2 justify-content-between">
+  <a class="navbar-brand d-flex align-items-center fw-bold" routerLink="/" style="letter-spacing: 0.5px;">
+    <i class="bi bi-code-slash me-2"></i> CF - Angular Notes
+  </a>
+
+  <div class="d-flex align-items-center">
+    @if (user()) {
+      <div class="d-flex align-items-center gap-3">
+        <span class="text-white opacity-90 d-none d-sm-inline">
+          Welcome, <span class="fw-bold bg-white text-primary px-2 py-1 rounded-pill shadow-sm" style="font-size: 0.9rem;">
+            {{user()?.username}}
+          </span>
+        </span>
+
+        <button (click)="logout()" class="btn btn-outline-light btn-sm fw-bold px-3 py-1 rounded-pill custom-logout-btn">
+          <i class="bi bi-box-arrow-right me-1"></i> Logout
+        </button>
+      </div>
+    } @else {
+      <button routerLink="login-example" class="btn btn-light btn-sm fw-bold px-4 py-1 rounded-pill shadow-sm text-primary">
+        <i class="bi bi-person-fill me-1"></i> Login
+      </button>
+    }
+  </div>
 </nav>

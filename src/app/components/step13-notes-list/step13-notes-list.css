@@ -11,8 +11,10 @@
 }
 
 .note-title {
-  font-weight: 700 !important;
+  font-weight: 600 !important;
   color: #2c3e50;
+  font-size: 1.1rem !important; 
+  margin-bottom: 0.1 !important;
 }
 
 .content-preview {

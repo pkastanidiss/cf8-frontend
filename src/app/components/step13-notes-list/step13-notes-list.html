@@ -4,6 +4,11 @@
               style="width: 300px; display: flex; flex-direction: column; height: auto; border-radius: 8px; overflow: hidden;">
       
       <mat-card-header style="padding-bottom: 0;">
+
+        <div mat-card-avatar class="author-avatar">
+            {{ (note.author?.username?.charAt(0) || 'U').toUpperCase() }}
+          </div>
+
         <mat-card-title style="font-weight: bold; font-size: 1.1rem; color: #333; word-break: break-word;">
           {{ note.title }}
         </mat-card-title>
@@ -29,8 +34,12 @@
         </p>
       </mat-card-content>
 
-      <mat-card-actions style="display: flex; justify-content: flex-end; padding: 4px 8px; gap: 4px;">
+      <mat-card-actions style="display: flex; justify-content: space-between; align-items: center; padding: 8px 16px;">
   
+        <span style="font-size: 0.75rem; color: #777; font-weight: 500;">
+    {{ note.createdAt | date:'dd/MM/yyyy' }}
+  </span>
+        
   <ng-container *ngIf="isAuthor(note)">
     
     <button mat-icon-button color="primary" [routerLink]="['/step14-edit-note', note._id]" matTooltip="Επεξεργασία">
