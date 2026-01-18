@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 // Services & Interfaces
 import { NoteService } from '../../shared/services/note.service';
@@ -18,6 +19,8 @@ import { LoggedInUser } from '../../shared/interfaces/user';
 // RxJS για το αυτόματο φρεσκάρισμα
 import { filter } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
+import { ChangeDetectorRef } from '@angular/core';
+
 
 
 @Component({
@@ -39,6 +42,8 @@ export class Step13NotesList implements OnInit, OnDestroy {
   private noteService = inject(NoteService);
   private userService = inject(UserService);
   private router = inject(Router);
+  private snackBar = inject(MatSnackBar);
+  private cd = inject(ChangeDetectorRef);
   
   private routerSub?: Subscription; 
   notes: any[] = [];
@@ -76,5 +81,25 @@ export class Step13NotesList implements OnInit, OnDestroy {
   if (!user || !note.author) return false;
   const authorUsername = typeof note.author === 'object' ? note.author.username : null;
   return authorUsername === user.username;
+  }
+
+  deleteNote(id: string): void {
+    if (confirm('Είσαι σίγουρος ότι θέλεις να διαγράψεις αυτή τη σημείωση;')) {
+      this.noteService.deleteNote(id).subscribe({
+        next: () => {
+          // 1. Αφαιρούμε τη σημείωση
+          this.notes = this.notes.filter(note => note._id !== id);
+          
+          // 2. Ενημερώνουμε ΧΕΙΡΟΚΙΝΗΤΑ την Angular να ελέγξει για αλλαγές
+          this.cd.detectChanges(); 
+
+          // 3. Εμφανίζουμε το SnackBar
+          this.snackBar.open('Η σημείωση διαγράφηκε!', 'OK', { duration: 3000 });
+          
+          console.log('Deleted successfully');
+        },
+        error: (err) => console.error(err)
+      });
+    }
   }
 }

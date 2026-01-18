@@ -39,20 +39,20 @@
         <span style="font-size: 0.75rem; color: #777; font-weight: 500;">
     {{ note.createdAt | date:'dd/MM/yyyy' }}
   </span>
-        
+<div style="display: flex; gap: 0;">    
   <ng-container *ngIf="isAuthor(note)">
     
     <button mat-icon-button color="primary" [routerLink]="['/step14-edit-note', note._id]" matTooltip="Επεξεργασία">
       <mat-icon>edit</mat-icon>
     </button>
     
-    <!-- <button mat-icon-button color="warn" (click)="deleteNote(note._id!)" matTooltip="Διαγραφή">
+    <button mat-icon-button color="warn" (click)="deleteNote(note._id!)" matTooltip="Διαγραφή">
       <mat-icon>delete</mat-icon>
-    </button> -->
+    </button>
 
   </ng-container>
+</div>
 
 </mat-card-actions>
-
     </mat-card>
 </div>
