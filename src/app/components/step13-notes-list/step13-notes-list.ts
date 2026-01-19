@@ -9,12 +9,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
 // Services & Interfaces
 import { NoteService } from '../../shared/services/note.service';
 import { UserService } from '../../shared/services/user.service';
 import { INote } from '../../shared/interfaces/note';
 import { LoggedInUser } from '../../shared/interfaces/user';
+import { NoteDetails } from '../note-details/note-details';
 
 // RxJS για το αυτόματο φρεσκάρισμα
 import { filter } from 'rxjs/operators';
@@ -33,7 +35,8 @@ import { ChangeDetectorRef } from '@angular/core';
     MatButtonModule,
     MatIconModule,
     MatDividerModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatDialogModule
   ],
   templateUrl: './step13-notes-list.html',
   styleUrls: ['./step13-notes-list.css']
@@ -44,6 +47,7 @@ export class Step13NotesList implements OnInit, OnDestroy {
   private router = inject(Router);
   private snackBar = inject(MatSnackBar);
   private cd = inject(ChangeDetectorRef);
+  dialog = inject(MatDialog);
   
   private routerSub?: Subscription; 
   notes: any[] = [];
@@ -53,9 +57,17 @@ export class Step13NotesList implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    console.log('Reloading list...');
-    this.loadNotes();
-  }
+  this.noteService.findAllNotes().subscribe({
+    next: (data) => {
+      this.notes = data;
+      this.cd.detectChanges(); 
+      console.log('Notes loaded:', this.notes);
+    },
+    error: (err) => {
+      console.error('Error loading notes:', err);
+    }
+  });
+}
 
 
   loadNotes(): void {
@@ -67,6 +79,12 @@ export class Step13NotesList implements OnInit, OnDestroy {
       error: (err) => console.error('API Error:', err)
     });
   }
+
+openNote(note: any) {
+  this.dialog.open(NoteDetails, {
+    data: { note: note }
+  });
+}
 
   ngOnDestroy(): void {
     this.routerSub?.unsubscribe();

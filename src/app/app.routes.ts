@@ -27,10 +27,11 @@ export const routes: Routes = [
   {path:'reactive-forms-example', component: Step9ReactiveForms},
   {path:'login-example', component: Step10UserLogin},
   {path:'create-user-example', component: Step11CreateUser, canActivate:[authGuard, adminRoleGuard]},
-  {path:'create-note-example', component: Step12CreateNote},
+  {path:'create-note-example', component: Step12CreateNote, canActivate:[authGuard]},
   {path:'notes-list-example', component: Step13NotesList},
   {path:'step14-edit-note', component: Step14EditNote },
   {path:'step14-edit-note/:id', component: Step14EditNote },
   {path:'welcome', component: Welcome},
-  {path:'', redirectTo:'welcome', pathMatch:'full'}
+  { path: '', redirectTo: '/welcome', pathMatch: 'full' }, 
+  { path: 'welcome', component: Welcome }
 ];

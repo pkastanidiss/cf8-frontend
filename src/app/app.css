@@ -1,0 +1,14 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+
+.main-content-area {
+  width: 100%;
+  min-height: calc(100vh - 70px);
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); /* Ωραίο gradient background */
+  padding: 30px;
+  box-sizing: border-box;
+}

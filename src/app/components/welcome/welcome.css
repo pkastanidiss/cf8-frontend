@@ -1,0 +1,43 @@
+/* Το εξωτερικό "περιτύλιγμα" που πιάνει όλη την οθόνη */
+.welcome-wrapper {
+  display: flex;
+  justify-content: center; /* Οριζόντιο κεντράρισμα */
+  align-items: center;     /* Κάθετο κεντράρισμα */
+  min-height: 80vh;        /* Δίνουμε ύψος για να μπορεί να κεντραριστεί κάθετα */
+  width: 100%;
+}
+
+/* Η κάρτα που περιέχει το κείμενο */
+.welcome-card {
+  text-align: center;      /* Κεντράρει το κείμενο (h1, p) μέσα στην κάρτα */
+  max-width: 600px;        /* Για να μην απλώνεται υπερβολικά σε μεγάλες οθόνες */
+  padding: 40px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08); /* Ένα απαλό shadow για βάθος */
+}
+
+/* Ο κύκλος με το εικονίδιο */
+.icon-circle {
+  width: 80px;
+  height: 80px;
+  background-color: #1976d2; /* Το μπλε που είπαμε */
+  border-radius: 50%;
+  margin: 0 auto 20px auto; /* Το margin: 0 auto κεντράρει τον κύκλο */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+p {
+  color: #666;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}

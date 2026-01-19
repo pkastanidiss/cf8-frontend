@@ -1,50 +1,29 @@
-.note-card {
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  background: white;
-  transition: transform 0.2s ease-in-out;
-}
-
-.note-card:hover {
-  transform: translateY(-5px);
-}
-
-.note-title {
-  font-weight: 600 !important;
-  color: #2c3e50;
-  font-size: 1.1rem !important; 
-  margin-bottom: 0.1 !important;
-}
-
-.content-preview {
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  color: #555;
-}
-
-.note-body-expanded {
-  white-space: pre-wrap;
-  color: #222;
-}
-
 .author-avatar {
-  background-color: #3f51b5;
+  background-color: #1976d2; /* Το μπλε της εφαρμογής */
   color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex !important;    /* Ενεργοποιεί το Flexbox */
+  justify-content: center;     /* Κεντράρει οριζόντια */
+  align-items: center;         /* Κεντράρει κάθετα */
+  border-radius: 50%;          /* Τέλειος κύκλος */
   font-weight: bold;
+  font-size: 1.2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Διακριτική σκιά */
+  width: 45px;                 /* Σταθερό μέγεθος */
+  height: 45px;
 }
 
-.spacer {
-  flex: 1 1 auto;
+.avatar-letter {
+  line-height: 1;              /* Διασφαλίζει ότι δεν θα "φύγει" το γράμμα */
 }
 
-.mat-mdc-card-actions {
-  padding-top: 0 !important;
+/* Bonus: Ομορφιά για την κάρτα */
+mat-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  border: 1px solid #eee !important;
+}
+
+mat-card:hover {
+  transform: translateY(-5px); /* Μικρό ανασήκωμα στο hover */
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1) !important;
+  border-color: #1976d2 !important;
 }
