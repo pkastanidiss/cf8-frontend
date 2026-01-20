@@ -1,22 +1,19 @@
-/* Κεντρικό Container */
-.note-container {
+/* .note-container {
   display: flex;
   justify-content: center;
   padding: 2rem;
   width: 100%;
 }
 
-/* Η κάρτα της σημείωσης */
 .note-card {
   background: white;
   padding: 2.5rem;
   border-radius: 12px;
   width: 100%;
-  max-width: 700px; /* Ελέγχει πόσο πλατύ θα είναι το σύνολο */
+  max-width: 700px; 
   box-sizing: border-box;
 }
 
-/* Force τα Material fields να είναι το ένα κάτω από το άλλο */
 .form-field-wrapper {
   width: 100%;
   display: block;
@@ -51,4 +48,4 @@
 }
 
 .alert-success { background-color: #d4edda; color: #155724; }
-.alert-danger { background-color: #f8d7da; color: #721c24; }
+.alert-danger { background-color: #f8d7da; color: #721c24; } */

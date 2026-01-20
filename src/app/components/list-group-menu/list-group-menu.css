@@ -1,10 +1,8 @@
-/* Το container της λίστας */
-.list-group {
+/* .list-group {
   display: flex;
   flex-direction: column;
 }
 
-/* Το κάθε link στο μενού */
 .list-group-item {
   padding: 16px 24px !important;
   font-size: 1.05rem !important;
@@ -16,18 +14,16 @@
   background: transparent;
 }
 
-/* Hover εφέ: Χρώμα και κίνηση δεξιά */
 .list-group-item:hover {
   background-color: #f8f9fa !important;
   color: #1976d2 !important;
-  padding-left: 35px !important; /* Η κίνηση που το κάνει "επαγγελματικό" */
+  padding-left: 35px !important; 
 }
 
-/* Το ενεργό στοιχείο (active) */
 .list-group-item.active {
   background-color: #e3f2fd !important;
   color: #1976d2 !important;
   font-weight: 600;
-  border-left: 6px solid #1976d2 !important; /* Έντονη γραμμή αριστερά */
+  border-left: 6px solid #1976d2 !important; 
 }
-
+ */
