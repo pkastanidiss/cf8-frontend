@@ -23,6 +23,5 @@ import { MatButtonModule } from '@angular/material/button';
   `
 })
 export class NoteDetails {
-  // Λαμβάνουμε τα δεδομένα της σημείωσης
   constructor(@Inject(MAT_DIALOG_DATA) public data: { note: any }) {}
 }

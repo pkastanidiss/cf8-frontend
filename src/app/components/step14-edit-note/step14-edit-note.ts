@@ -15,7 +15,7 @@ import { NoteService } from '../../shared/services/note.service';
 export class Step14EditNote implements OnInit {
   private noteService = inject(NoteService);
   private route = inject(ActivatedRoute);
-  private cdr = inject(ChangeDetectorRef); // Inject τον Change Detector
+  private cdr = inject(ChangeDetectorRef); 
 
   noteId: string | null = null;
   isUpdated = false;
@@ -31,7 +31,7 @@ export class Step14EditNote implements OnInit {
       this.noteService.getNoteById(this.noteId).subscribe({
         next: (note) => {
           this.form.patchValue(note);
-          this.cdr.detectChanges(); // Ενημέρωσε το UI ότι ήρθαν τα δεδομένα
+          this.cdr.detectChanges(); 
         }
       });
     }
@@ -39,11 +39,8 @@ export class Step14EditNote implements OnInit {
 
   onSubmit(): void {
   if (this.form.valid && this.noteId) {
-    // Χρησιμοποιούμε το getRawValue() για να αποφύγουμε το σφάλμα με το 'null'
-    // και στέλνουμε τα δεδομένα στο service.
     this.noteService.updateNote(this.noteId, this.form.getRawValue()).subscribe({
       next: (response) => {
-        // ΑΥΤΟ ΕΙΝΑΙ ΠΟΥ ΖΗΤΗΣΕΣ: Εμφάνιση στο console
         console.log('Update Successful! Response from server:', response);
         
         this.isUpdated = true;

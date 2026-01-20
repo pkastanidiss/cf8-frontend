@@ -1,29 +1,28 @@
 .author-avatar {
-  background-color: #1976d2; /* Το μπλε της εφαρμογής */
+  background-color: #1976d2; 
   color: white;
-  display: flex !important;    /* Ενεργοποιεί το Flexbox */
-  justify-content: center;     /* Κεντράρει οριζόντια */
-  align-items: center;         /* Κεντράρει κάθετα */
-  border-radius: 50%;          /* Τέλειος κύκλος */
+  display: flex !important;    
+  justify-content: center;     
+  align-items: center;        
+  border-radius: 50%;         
   font-weight: bold;
   font-size: 1.2rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Διακριτική σκιά */
-  width: 45px;                 /* Σταθερό μέγεθος */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+  width: 45px;                 
   height: 45px;
 }
 
 .avatar-letter {
-  line-height: 1;              /* Διασφαλίζει ότι δεν θα "φύγει" το γράμμα */
+  line-height: 1;              
 }
 
-/* Bonus: Ομορφιά για την κάρτα */
 mat-card {
   transition: transform 0.2s ease, box-shadow 0.2s ease !important;
   border: 1px solid #eee !important;
 }
 
 mat-card:hover {
-  transform: translateY(-5px); /* Μικρό ανασήκωμα στο hover */
+  transform: translateY(-5px); 
   box-shadow: 0 8px 15px rgba(0,0,0,0.1) !important;
   border-color: #1976d2 !important;
 }

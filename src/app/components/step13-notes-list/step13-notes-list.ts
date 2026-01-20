@@ -1,8 +1,6 @@
 import { Component, OnInit, inject, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router, NavigationEnd } from '@angular/router';
-
-// Angular Material Imports (Αυτά χρειάζονται για να μη "χτυπάει" η HTML)
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -10,15 +8,11 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-
-// Services & Interfaces
 import { NoteService } from '../../shared/services/note.service';
 import { UserService } from '../../shared/services/user.service';
 import { INote } from '../../shared/interfaces/note';
 import { LoggedInUser } from '../../shared/interfaces/user';
 import { NoteDetails } from '../note-details/note-details';
-
-// RxJS για το αυτόματο φρεσκάρισμα
 import { filter } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 import { ChangeDetectorRef } from '@angular/core';
@@ -105,13 +99,10 @@ openNote(note: any) {
     if (confirm('Είσαι σίγουρος ότι θέλεις να διαγράψεις αυτή τη σημείωση;')) {
       this.noteService.deleteNote(id).subscribe({
         next: () => {
-          // 1. Αφαιρούμε τη σημείωση
           this.notes = this.notes.filter(note => note._id !== id);
-          
-          // 2. Ενημερώνουμε ΧΕΙΡΟΚΙΝΗΤΑ την Angular να ελέγξει για αλλαγές
+
           this.cd.detectChanges(); 
 
-          // 3. Εμφανίζουμε το SnackBar
           this.snackBar.open('Η σημείωση διαγράφηκε!', 'OK', { duration: 3000 });
           
           console.log('Deleted successfully');
