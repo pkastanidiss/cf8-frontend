@@ -4,6 +4,7 @@ import { UserService } from '../../shared/services/user.service';
 import { MatFormField, MatLabel, MatInput, MatError } from '@angular/material/input';
 import { MatAnchor } from "@angular/material/button";
 import { Credentials, LoggedInUser } from '../../shared/interfaces/user';
+import { Router } from '@angular/router';
 
 import {jwtDecode} from 'jwt-decode';
 
@@ -15,6 +16,7 @@ import {jwtDecode} from 'jwt-decode';
 })
 export class Step10UserLogin {
   userService = inject(UserService);
+   router = inject(Router);
 
   invalidLogin: boolean = false;
 
@@ -26,9 +28,6 @@ export class Step10UserLogin {
   onSubmit() {
     console.log(this.form.value);
     this.userService.loginUser(this.form.value as Credentials)
-    // .subscribe(response => {
-    //   console.log(response);
-    // })
     .subscribe({
       next: (response) => {
         console.log(response.token);
@@ -44,6 +43,8 @@ export class Step10UserLogin {
           email: decodedTokenSubject.email,
           roles: decodedTokenSubject.roles
         })
+
+        this.router.navigate(['/notes-list-example']);
       },
       error: (error) => {
         console.log("Login", error);
