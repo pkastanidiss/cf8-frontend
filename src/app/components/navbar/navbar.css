@@ -1,9 +1,8 @@
-/* Βασική δομή Navbar */
 .main-navbar {
   display: flex;
   justify-content: space-between;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  background-color: #1976d2 !important; /* Το μπλε που ήθελες */
+  background-color: #1976d2 !important; 
 }
 
 .nav-section {
@@ -15,7 +14,6 @@
 .align-center { justify-content: center; flex: 1; }
 .align-end { justify-content: flex-end; flex: 1; }
 
-/* Logo με Pointer και Pop-out */
 .brand-logo {
   font-size: 1.6rem;
   font-weight: 600;
@@ -27,16 +25,14 @@
 }
 
 .brand-logo:hover {
-  transform: scale(1.05); /* Διακριτικό pop out */
+  transform: scale(1.05); 
 }
 
-/* User Info */
 .welcome-text {
   margin-right: 15px;
   font-size: 0.9rem;
 }
 
-/* Ρυθμίσεις του Dropdown παραθύρου (το "κουτί") */
 ::ng-deep .modern-dropdown {
   min-width: 300px !important; 
   border-radius: 12px !important;
@@ -50,17 +46,15 @@
   padding: 8px 0;
 }
 
-/* Container για τα στοιχεία του χρήστη */
 .user-info {
   display: flex;
   align-items: center;
-  gap: 15px; /* Κενό ανάμεσα στο όνομα και το κουμπί */
-  background: rgba(255, 255, 255, 0.1); /* Πολύ διακριτικό background */
+  gap: 15px; 
+  background: rgba(255, 255, 255, 0.1); 
   padding: 5px 15px;
-  border-radius: 30px; /* Στρογγυλεμένο "χάπι" */
+  border-radius: 30px; 
 }
 
-/* Το κείμενο "Welcome, ..." */
 .welcome-text {
   color: white;
   font-size: 0.95rem;
@@ -68,11 +62,11 @@
 }
 
 .welcome-text strong {
-  color: #ffeb3b; /* Ένα απαλό κίτρινο για να ξεχωρίζει το username */
+  color: #ffeb3b; 
   font-weight: 600;
 }
 
-/* Το κουμπί Logout */
+
 .logout-btn {
   border-color: rgba(255, 255, 255, 0.5) !important;
   color: white !important;
@@ -81,15 +75,14 @@
 }
 
 .logout-btn:hover {
-  background-color: #f44336 !important; /* Γίνεται κόκκινο στο hover */
+  background-color: #f44336 !important; 
   border-color: #f44336 !important;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-/* Το κουμπί Login */
 .login-btn {
-  background-color: #ff4081 !important; /* Το ζωηρό φούξια που είπαμε */
+  background-color: #ff4081 !important; 
   color: white !important;
   font-weight: 600 !important;
   border-radius: 8px !important;
@@ -98,12 +91,11 @@
 }
 
 .login-btn:hover {
-  background-color: #f50057 !important; /* Πιο σκούρο στο hover */
+  background-color: #f50057 !important; 
   transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(255, 64, 129, 0.4);
 }
 
-/* Μικρή διόρθωση για τα εικονίδια μέσα στα κουμπιά */
 .mat-icon {
   margin-right: 4px;
   font-size: 20px;

@@ -1,4 +1,4 @@
-/* .author-avatar {
+.author-avatar {
   background-color: #1976d2; 
   color: white;
   display: flex !important;    
@@ -25,4 +25,4 @@ mat-card:hover {
   transform: translateY(-5px); 
   box-shadow: 0 8px 15px rgba(0,0,0,0.1) !important;
   border-color: #1976d2 !important;
-} */
+}

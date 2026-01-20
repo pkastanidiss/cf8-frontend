@@ -1,4 +1,4 @@
-/* .note-container {
+.note-container {
   display: flex;
   justify-content: center;
   padding: 2rem;
@@ -48,4 +48,4 @@
 }
 
 .alert-success { background-color: #d4edda; color: #155724; }
-.alert-danger { background-color: #f8d7da; color: #721c24; } */
+.alert-danger { background-color: #f8d7da; color: #721c24; }

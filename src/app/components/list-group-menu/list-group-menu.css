@@ -1,4 +1,4 @@
-/* .list-group {
+.list-group {
   display: flex;
   flex-direction: column;
 }
@@ -26,4 +26,4 @@
   font-weight: 600;
   border-left: 6px solid #1976d2 !important; 
 }
- */
+
