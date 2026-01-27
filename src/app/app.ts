@@ -1,9 +1,4 @@
 import { Component } from '@angular/core';
-import { Step2PersonTable } from './components/step2-person-table/step2-person-table';
-import { Step3PersonTableInput } from './components/step3-person-table-input/step3-person-table-input';
-import { Step4ForDirective } from './components/step4-for-directive/step4-for-directive';
-import { Step5EventBind } from './components/step5-event-bind/step5-event-bind';
-
 import { Navbar } from './components/navbar/navbar';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { Person } from './shared/interfaces/person';
@@ -13,11 +8,7 @@ import { Person } from './shared/interfaces/person';
   imports: [
     RouterLink,
     RouterOutlet,
-    Navbar,
-    Step2PersonTable, 
-    Step3PersonTableInput, 
-    Step4ForDirective, 
-    Step5EventBind],
+    Navbar],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

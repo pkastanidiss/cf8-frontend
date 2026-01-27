@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { Step10UserLogin } from './step10-user-login';
 
 describe('Step10UserLogin', () => {

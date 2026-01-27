@@ -23,8 +23,7 @@ import {
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
-    MatButtonModule,
-
+    MatButtonModule
   ],
   templateUrl: './step11-create-user.html',
   styleUrl: './step11-create-user.css',
