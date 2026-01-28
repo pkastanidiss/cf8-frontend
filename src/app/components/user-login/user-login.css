@@ -48,3 +48,24 @@ button[mat-flat-button] {
   border-radius: 8px;
   margin-top: 15px;
 }
+
+.register-link-container {
+  margin-top: auto; 
+  padding-top: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.register-link {
+  color: #1976d2;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+  color: #115293;
+}

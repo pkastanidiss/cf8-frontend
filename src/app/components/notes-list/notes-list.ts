@@ -20,7 +20,7 @@ import { ChangeDetectorRef } from '@angular/core';
 
 
 @Component({
-  selector: 'app-step13-notes-list',
+  selector: 'app-notes-list',
   standalone: true,
   imports: [
     CommonModule,
@@ -32,10 +32,10 @@ import { ChangeDetectorRef } from '@angular/core';
     MatTooltipModule,
     MatDialogModule
   ],
-  templateUrl: './step13-notes-list.html',
-  styleUrls: ['./step13-notes-list.css']
+  templateUrl: './notes-list.html',
+  styleUrls: ['./notes-list.css']
 })
-export class Step13NotesList implements OnInit, OnDestroy {
+export class NotesList implements OnInit, OnDestroy {
   private noteService = inject(NoteService);
   private userService = inject(UserService);
   private router = inject(Router);

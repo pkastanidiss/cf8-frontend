@@ -9,7 +9,7 @@ import { NoteService } from '../../shared/services/note.service';
 import { INote } from '../../shared/interfaces/note';
 
 @Component({
-  selector: 'app-step12-create-note',
+  selector: 'app-create-note',
   standalone: true,
   imports: [
     CommonModule,
@@ -18,10 +18,10 @@ import { INote } from '../../shared/interfaces/note';
     MatInputModule,
     MatButtonModule,
   ],
-  templateUrl: './step12-create-note.html',
-  styleUrl: './step12-create-note.css',
+  templateUrl: './create-note.html',
+  styleUrl: './create-note.css',
 })
-export class Step12CreateNote {
+export class CreateNote {
   noteService = inject(NoteService);
   router = inject(Router);
   status: { success: boolean; message: string } = {

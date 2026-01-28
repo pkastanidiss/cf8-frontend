@@ -7,28 +7,33 @@ import {
   AbstractControl,
   ReactiveFormsModule,
   Validators
-  } from '@angular/forms';
-  import {MatSelect, MatSelectModule} from '@angular/material/select';
-  import { MatInputModule } from '@angular/material/input';
-  import { MatFormFieldModule } from '@angular/material/form-field';
-  import { MatButtonModule } from '@angular/material/button';
-  import {IUser} from '../../shared/interfaces/user';
-  import { CommonModule } from '@angular/common';
+} from '@angular/forms';
+import {MatSelect, MatSelectModule} from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { IUser } from '../../shared/interfaces/user';
+import { CommonModule } from '@angular/common';
+import { MatIcon, MatIconModule } from "@angular/material/icon";
+import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-step11-create-user',
+  selector: 'app-user-register',
   imports: [
     CommonModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
-    MatButtonModule
-  ],
-  templateUrl: './step11-create-user.html',
-  styleUrl: './step11-create-user.css',
+    MatButtonModule,
+    MatIcon,
+    MatIconModule,
+    RouterLink
+],
+  templateUrl: './user-register.html',
+  styleUrl: './user-register.css',
 })
-export class Step11CreateUser {
+export class UserRegister {
   userService = inject(UserService);
 
   registrationStatus: {success: boolean, message:string} = {

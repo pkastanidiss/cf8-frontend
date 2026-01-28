@@ -4,17 +4,17 @@ import { UserService } from '../../shared/services/user.service';
 import { MatFormField, MatLabel, MatInput, MatError } from '@angular/material/input';
 import { MatAnchor } from "@angular/material/button";
 import { Credentials, LoggedInUser } from '../../shared/interfaces/user';
-import { Router } from '@angular/router';
+import { Router} from '@angular/router';
 
 import {jwtDecode} from 'jwt-decode';
 
 @Component({
-  selector: 'app-step10-user-login',
+  selector: 'app-user-login',
   imports: [ReactiveFormsModule, MatFormField, MatLabel, MatInput, MatError, MatAnchor],
-  templateUrl: './step10-user-login.html',
-  styleUrl: './step10-user-login.css',
+  templateUrl: './user-login.html',
+  styleUrl: './user-login.css',
 })
-export class Step10UserLogin {
+export class UserLogin {
   userService = inject(UserService);
    router = inject(Router);
 
@@ -44,7 +44,7 @@ export class Step10UserLogin {
           roles: decodedTokenSubject.roles
         })
 
-        this.router.navigate(['/notes-list-example']);
+        this.router.navigate(['/notes-list']);
       },
       error: (error) => {
         console.log("Login", error);

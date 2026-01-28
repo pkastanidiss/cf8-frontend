@@ -16,6 +16,11 @@
 
 <button mat-flat-button color="primary" (click)="onSubmit()">Submit</button>
 
+<div class="register-link-container">
+  <span>Don't have an account? </span>
+  <a (click)="router.navigate(['/user-register'])" class="register-link">Register</a>
+</div>
+
 @if (invalidLogin) {
   <div class="alert alert-danger mt-2">
     <strong>Error:</strong> Invalid username or password

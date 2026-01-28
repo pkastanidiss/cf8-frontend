@@ -38,7 +38,7 @@
 
         <div style="display: flex; gap: 4px;">    
           <ng-container *ngIf="isAuthor(note)">
-            <button mat-icon-button color="primary" (click)="$event.stopPropagation()" [routerLink]="['/step14-edit-note', note._id]">
+            <button mat-icon-button color="primary" (click)="$event.stopPropagation()" [routerLink]="['/edit-note', note._id]">
               <mat-icon>edit</mat-icon>
             </button>
             <button mat-icon-button color="warn" (click)="$event.stopPropagation(); deleteNote(note._id!)">

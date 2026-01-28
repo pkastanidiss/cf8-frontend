@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Step13NotesList } from './step13-notes-list';
+import { Step13NotesList } from './notes-list';
 
 describe('Step13NotesList', () => {
   let component: Step13NotesList;

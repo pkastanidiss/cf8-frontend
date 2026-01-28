@@ -19,10 +19,10 @@ import { MatIconModule } from '@angular/material/icon';
 export class ListGroupMenu {
 
   menu = [
-    {text:"User Login", link: 'login-example'},
-    {text:"Create User", link: 'create-user-example'},
-    {text:"Create Note", link: 'create-note-example'},
-    {text:"Notes List", link: 'notes-list-example'}
+    {text:"User Login", link: 'user-login'},
+    {text:"User Register", link: 'user-register'},
+    {text:"Create Note", link: 'create-note'},
+    {text:"Notes List", link: 'notes-list'}
 
   ]
 }

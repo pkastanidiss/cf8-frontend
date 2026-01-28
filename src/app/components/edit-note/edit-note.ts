@@ -6,13 +6,13 @@ import { NoteService } from '../../shared/services/note.service';
 
 
 @Component({
-  selector: 'app-step14-edit-note',
+  selector: 'app-edit-note',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, RouterLink],
-  templateUrl: './step14-edit-note.html',
-  styleUrls: ['./step14-edit-note.css']
+  templateUrl: './edit-note.html',
+  styleUrls: ['./edit-note.css']
 })
-export class Step14EditNote implements OnInit {
+export class EditNote implements OnInit {
   private noteService = inject(NoteService);
   private route = inject(ActivatedRoute);
   private cdr = inject(ChangeDetectorRef); 
