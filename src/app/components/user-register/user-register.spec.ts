@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Step11CreateUser } from './user-register';
+import { UserRegister } from './user-register';
 
-describe('Step11CreateUser', () => {
-  let component: Step11CreateUser;
-  let fixture: ComponentFixture<Step11CreateUser>;
+describe('UserRegister', () => {
+  let component: UserRegister;
+  let fixture: ComponentFixture<UserRegister>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Step11CreateUser]
+      imports: [UserRegister]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Step11CreateUser);
+    fixture = TestBed.createComponent(UserRegister);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

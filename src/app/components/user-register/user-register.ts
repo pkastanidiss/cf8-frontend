@@ -16,7 +16,6 @@ import { IUser } from '../../shared/interfaces/user';
 import { CommonModule } from '@angular/common';
 import { MatIcon, MatIconModule } from "@angular/material/icon";
 import { RouterLink } from '@angular/router';
-
 @Component({
   selector: 'app-user-register',
   imports: [
@@ -27,8 +26,7 @@ import { RouterLink } from '@angular/router';
     MatInputModule,
     MatButtonModule,
     MatIcon,
-    MatIconModule,
-    RouterLink
+    MatIconModule
 ],
   templateUrl: './user-register.html',
   styleUrl: './user-register.css',
