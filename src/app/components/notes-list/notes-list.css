@@ -1,3 +1,31 @@
+.filter-header-section {
+  padding: 20px 20px 0 20px;
+  display: flex;
+  justify-content: flex-start; 
+}
+
+.filter-dropdown {
+  width: 280px;
+}
+
+
+.category-pill-container {
+  margin-bottom: 12px;
+}
+
+.category-pill {
+  background-color: #e3f2fd; 
+  color: #1976d2;           
+  padding: 4px 12px;
+  border-radius: 50px;      
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid #bbdefb;
+  display: inline-block;
+}
+
 .author-avatar {
   background-color: #1976d2; 
   color: white;
@@ -8,7 +36,7 @@
   font-weight: bold;
   font-size: 1.2rem;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
-  width: 45px;                 
+  width: 45px;                
   height: 45px;
 }
 

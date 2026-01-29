@@ -1,6 +1,7 @@
 import { Component, OnInit, inject, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router, NavigationEnd } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -8,6 +9,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select'; 
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { NoteService } from '../../shared/services/note.service';
 import { UserService } from '../../shared/services/user.service';
 import { INote } from '../../shared/interfaces/note';
@@ -16,6 +19,7 @@ import { NoteDetails } from '../note-details/note-details';
 import { filter } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 import { ChangeDetectorRef } from '@angular/core';
+import { SCIENTIFIC_CATEGORIES } from '../../shared/constants/categories';
 
 
 
@@ -30,7 +34,10 @@ import { ChangeDetectorRef } from '@angular/core';
     MatIconModule,
     MatDividerModule,
     MatTooltipModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule,
+    MatSelectModule,
+    MatFormFieldModule
   ],
   templateUrl: './notes-list.html',
   styleUrls: ['./notes-list.css']
@@ -42,7 +49,13 @@ export class NotesList implements OnInit, OnDestroy {
   private snackBar = inject(MatSnackBar);
   private cd = inject(ChangeDetectorRef);
   dialog = inject(MatDialog);
+  readonly filterOptions = ['Όλα', ...SCIENTIFIC_CATEGORIES];
+  selectedCategory = 'Όλα';
   
+  triggerChangeDetection() {
+    this.cd.detectChanges();
+  }
+
   private routerSub?: Subscription; 
   notes: any[] = [];
 
@@ -63,7 +76,6 @@ export class NotesList implements OnInit, OnDestroy {
   });
 }
 
-
   loadNotes(): void {
     this.noteService.findAllNotes().subscribe({
       next: (data) => {
@@ -74,7 +86,23 @@ export class NotesList implements OnInit, OnDestroy {
     });
   }
 
-openNote(note: any) {
+  getFilteredNotes() {
+    return this.selectedCategory === 'Όλα' 
+      ? this.notes 
+      : this.notes.filter(n => n.category === this.selectedCategory);
+  }
+
+  getCategoryColor(category: string): string {
+  const colors: { [key: string]: string } = {
+    'Ιατρική': '#e91e63',      // Pink
+    'Πληροφορική': '#1e88e5',  // Blue
+    'Οικονομικά': '#4caf50',   // Green
+    'default': '#9e9e9e'       // Grey
+  };
+  return colors[category] || colors['default'];
+}
+
+  openNote(note: any) {
   this.dialog.open(NoteDetails, {
     data: { note: note }
   });

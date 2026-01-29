@@ -7,6 +7,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { NoteService } from '../../shared/services/note.service';
 import { INote } from '../../shared/interfaces/note';
+import { MatOption } from "@angular/material/select";
+import { MatSelectModule } from '@angular/material/select';
+import { SCIENTIFIC_CATEGORIES } from '../../shared/constants/categories';
 
 @Component({
   selector: 'app-create-note',
@@ -17,7 +20,9 @@ import { INote } from '../../shared/interfaces/note';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-  ],
+    MatOption,
+    MatSelectModule
+],
   templateUrl: './create-note.html',
   styleUrl: './create-note.css',
 })
@@ -29,9 +34,12 @@ export class CreateNote {
     message: '',
   };
 
+  readonly categories = SCIENTIFIC_CATEGORIES;
+  
   form = new FormGroup({
     title: new FormControl('', [Validators.required, Validators.minLength(5)]),
     content: new FormControl('', [Validators.required, Validators.minLength(10)]),
+    category: new FormControl('', Validators.required)
   });
 
   onSubmit() {

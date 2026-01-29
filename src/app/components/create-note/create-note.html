@@ -20,6 +20,18 @@
 
       <div class="form-field-wrapper">
         <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Επιστημονικός Κλάδος</mat-label>
+          <mat-select formControlName="category">
+            @for (field of categories; track field) {
+              <mat-option [value]="field">{{field}}</mat-option>
+            }
+          </mat-select>
+          <mat-error *ngIf="form.get('category')?.invalid">Παρακαλώ επιλέξτε έναν κλάδο</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-field-wrapper">
+        <mat-form-field appearance="outline" class="w-100">
           <mat-label>Περιεχόμενο</mat-label>
           <textarea matInput formControlName="content" rows="10" placeholder="Γράψτε το κείμενό σας εδώ..."></textarea>
           <mat-error *ngIf="form.get('content')?.invalid">Το περιεχόμενο δεν μπορεί να είναι κενό</mat-error>
@@ -38,7 +50,7 @@
       <div *ngIf="status.message" [ngClass]="status.success ? 'alert-success' : 'alert-danger'" class="status-msg">
         {{ status.message }}
       </div>
-
+      
     </form>
   </div>
 </div>
