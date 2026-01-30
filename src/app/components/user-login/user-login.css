@@ -50,11 +50,16 @@ button[mat-flat-button] {
 }
 
 .register-link-container {
-  margin-top: auto; 
-  padding-top: 2rem;
-  text-align: center;
-  font-size: 0.9rem;
-  color: #666;
+display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 8px;
+  margin-top: 30px; 
+  margin-bottom: 10px;
+  font-weight: 500;
+  transition: all 0.3s ease; 
+
 }
 
 .register-link {
