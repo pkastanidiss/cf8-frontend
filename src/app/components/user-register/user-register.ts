@@ -88,19 +88,33 @@ export class UserRegister {
     this.phone.removeAt(index);
   }
 
-  onSubmit(){
+  onSubmit() {
     console.log(this.form.value);
-    const user = this.form.value as IUser
+    const user = this.form.value as IUser;
 
     this.userService.createUser(user).subscribe({
       next: (response) => {
-        this.form.reset()
-        this.registrationStatus = {success:true, message: "User registered"}
+        this.form.reset();
+        this.registrationStatus = { 
+          success: true, 
+          message: "Η εγγραφή ολοκληρώθηκε με επιτυχία!" 
+        };
       },
       error: (error) => {
         console.log("There was an error", error);
-        this.registrationStatus = {success:false, message: error}
+        
+        if (error.status === 409) {
+          this.registrationStatus = {
+            success: false,
+            message: "Το email χρησιμοποιείται ήδη!"
+          };
+        } else {
+          this.registrationStatus = {
+            success: false,
+            message: "Παρουσιάστηκε σφάλμα κατά την εγγραφή. Δοκιμάστε ξανά."
+          };
+        }
       }
-    })
+    });
   }
 }

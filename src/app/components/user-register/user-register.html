@@ -97,6 +97,13 @@
       <button mat-flat-button class="submit-btn" type="button" (click)="onSubmit()" [disabled]="form.invalid">
         Create Account ✨
       </button>
+
+      <div *ngIf="registrationStatus.message !== 'Not attempted yet'" 
+     [ngClass]="registrationStatus.success ? 'alert-success' : 'alert-error'"
+     class="status-message">
+      <mat-icon>{{ registrationStatus.success ? 'check_circle' : 'error' }}</mat-icon>
+      <span>{{ registrationStatus.message }}</span>
+      </div>
     </form>
   </div>
 </div>
